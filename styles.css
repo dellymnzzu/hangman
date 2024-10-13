@@ -1,32 +1,64 @@
 * {
     box-sizing: border-box;
   }
+  /* 
+모든 요소에 'box-sizing' 속성을 'border-box'로 설정.
+이는 요소의 크기 계산 시 padding과 border를 포함하게 하여 레이아웃을 더 쉽게 관리할 수 있게 합니다.
+*/
   
   body {
     background-color: #f4c2c26b;
   }
+  /* 
+body 태그의 배경색을 연한 핑크색(#f4c2c26b)으로 설정.
+
+*/
   
   .game-name {
     font-weight: 900;
     font-size: large;
   }
+
+  /* 
+게임 이름의 텍스트에 굵은 폰트(900)와 큰 폰트 크기 설정.
+*/
   
   .container {
     margin: 20px auto;
     width: 1000px;
   }
+/* 
+가장 상위 컨테이너에 가로 너비를 1000px로 설정하고, 상하로는 20px의 여백을 줌. 가운데 정렬을 위해 margin을 auto로 설정.
+*/
+
   .row {
     display: flex;
   }
+/* 
+row 클래스에 'flex'를 사용하여 자식 요소들을 수평으로 배치.
+*/
+
   hr {
     border: 1px solid #eee;
   }
+/* 
+수평선을 1px의 두께와 연한 회색(#eee)으로 설정.
+*/
+
   .game-info {
     display: flex;
   }
+/* 
+게임 정보를 flexbox로 배치하여 내부 요소들을 수평으로 정렬.
+*/
+
   .game-info .game-name {
     flex: 1;
   }
+
+  /* 
+게임 이름 요소가 flexbox 안에서 1의 비율을 차지하게 함.
+*/
   
   .game-info .category {
     flex: 1;
@@ -34,12 +66,19 @@
     font-weight: 800;
     color: grey;
   }
-  
+  /* 
+카테고리 텍스트가 flexbox 안에서 1의 비율을 차지하고, 텍스트를 오른쪽 정렬하며, 폰트를 굵게(800), 색상을 회색으로 설정.
+*/
+
   .game-info .category span {
     text-transform: capitalize;
     color: #e91e;
     font-weight: bold;
   }
+/* 
+카테고리 이름의 첫 글자를 대문자로 변환하고, 텍스트 색상을 빨간색(#e91e)으로 설정하며, 폰트를 굵게.
+*/
+
   
   .hangman-draw {
     flex: 1;
@@ -47,6 +86,10 @@
     padding: 20px;
     height: 324px;
   }
+/* 
+행맨 그림이 그려질 공간에 flex 비율 1을 차지하고, 배경색을 투명으로 설정. 패딩은 20px, 높이는 324px.
+*/
+
   
   .hangman-draw .the-draw {
     width: 60px;
@@ -57,9 +100,18 @@
     left: -60px;
     display: none;
   }
+/* 
+행맨 그림의 기본 구조를 정의하는 the-draw 클래스. 너비 60px, 높이 280px, 아래에 4px 두께의 검은색(#222) 선을 표시.
+처음에는 보이지 않도록 display: none 처리.
+*/
+
   .hangman-draw .the-hang {
     display: none;
   }
+/* 
+hang 부분은 처음에 숨겨져 있음.
+*/
+
   .hangman-draw .the-stand {
     position: absolute;
     width: 4px;
@@ -69,6 +121,10 @@
     margin-left: -2px;
     display: none;
   }
+/* 
+행맨의 기둥 부분을 4px의 두께로 설정. 초기에는 보이지 않도록 설정(display: none).
+*/
+
   
   .hangman-draw .the-stand:before {
     content: '';
@@ -100,6 +156,10 @@
     border: 4px dashed #222;
     display: none;
   }
+
+  /* 
+행맨의 밧줄 부분. 원형(border-radius: 50%)으로 설정하고, 4px 두께의 검은색 점선으로 설정.
+*/
   
   .hangman-draw .the-man .head {
     width: 50px;
@@ -165,7 +225,9 @@
     background-color: #222;
     top: 173px;
   }
-  
+  /* 
+사용자가 첫번째부터 마지막까지 틀렸을 때 (draw 단계), the-draw 요소가 화면에 나타남.
+*/
   .hangman-draw.wrong-1 .the-draw {
     display: block;
   }
@@ -200,6 +262,10 @@
     padding: 15px;
     text-align: center;
   }
+
+  /* 
+알파벳 버튼이 있는 영역을 flex 비율 1로 설정하고, 패딩을 15px, 텍스트는 중앙 정렬.
+*/
   
   .letters .letter-box {
     width: 55px;
@@ -215,22 +281,38 @@
     cursor: pointer;
     margin-bottom: 12px;
   }
+
+  /* 
+알파벳 버튼의 스타일 설정. 너비와 높이를 55px로 설정하고, 텍스트를 대문자로 변환. 글자 색상은 연한 회색(#a38282).
+*/
   
   .letters .letter-box:hover {
     color: white;
   }
+
+  /* 
+알파벳 버튼에 마우스를 올렸을 때, 글자 색상이 흰색으로 변경됨.
+*/
   
   .letters .letter-box:active {
     background-color: #d8b4b457;
     border-radius: 50%;
     color: grey;
   }
+
+  /* 
+알파벳 버튼을 클릭할 때 배경색이 연한 회색(#d8b4b457)으로 변경되고, 버튼이 원형(border-radius: 50%)으로 변환됨.
+*/
   
   .letters .letter-box.clicked {
     background-color: #222;
     opacity: 0.2;
     pointer-events: none;
   }
+
+  /* 
+이미 클릭한 알파벳 버튼은 배경색이 검은색(#222)으로 변경되고, 투명도는 0.2로 낮추며 다시 클릭할 수 없도록 설정.
+*/
   .letters-guess {
     margin: 10px auto;
     background-color: #f4c2c22a;
@@ -239,7 +321,10 @@
     justify-content: center;
     min-height: 104px;
   }
-  
+  /* 
+맞출 단어의 글자들이 표시되는 영역의 스타일 설정. 패딩 20px과 최소 높이 104px을 주어 중앙에 글자가 표시되도록 함.
+*/
+
   .letters-guess span {
     width: 60px;
     height: 64px;
@@ -253,10 +338,19 @@
     border-bottom: 3px solid black;
     transition: 0.3s;
   }
+
+  /* 
+단어의 각 글자 칸의 스타일 설정. 글자 높이와 폭, 배경색, 그리고 하단에 검은색 경계선을 추가.
+*/
+
   
   .letters-guess span.with-space {
     background-color: none;
     border-bottom: none;
     position: relative;
   }
+
+  /* 
+단어의 공백(스페이스)에 해당하는 부분은 경계선을 없애고 배경색도 설정하지 않음.
+*/
   
